@@ -13,31 +13,31 @@ const Footer = () => {
               alt="Amna Auditing"
               className="h-12 w-auto mb-4 brightness-0 invert"
             />
-            <p className="text-gray-400 mt-2">
+            <p className="text-gray-300 mt-2 font-medium">
               Professional audit and assurance services tailored to your business needs.
             </p>
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-gray-400 hover:text-white transition-colors">
+                <Link to="/" className="text-gray-300 hover:text-white transition-colors font-medium">
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-gray-400 hover:text-white transition-colors">
+                <Link to="/about" className="text-gray-300 hover:text-white transition-colors font-medium">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-400 hover:text-white transition-colors">
+                <Link to="/contact" className="text-gray-300 hover:text-white transition-colors font-medium">
                   Contact Us
                 </Link>
               </li>
               <li>
-                <Link to="/useful-links" className="text-gray-400 hover:text-white transition-colors">
+                <Link to="/useful-links" className="text-gray-300 hover:text-white transition-colors font-medium">
                   Useful Links
                 </Link>
               </li>
@@ -45,26 +45,37 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">Contact Info</h3>
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
-                <Phone size={20} className="text-[#5616b3]" />
-                <span className="text-gray-400">+974 4012 3456</span>
+                <Phone size={20} className="text-[#7c42d9]" />
+                <span className="text-gray-300 font-medium">+974 4012 3456</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail size={20} className="text-[#5616b3]" />
-                <span className="text-gray-400">info@amnaauditing.com</span>
+                <Mail size={20} className="text-[#7c42d9]" />
+                <span className="text-gray-300 font-medium">info@amnaauditing.com</span>
               </div>
               <div className="flex items-center space-x-3">
-                <MapPin size={20} className="text-[#5616b3]" />
-                <span className="text-gray-400">Al Emadi Business Center, C Ring Road, Doha, Qatar</span>
+                <MapPin size={20} className="text-[#7c42d9]" />
+                <span className="text-gray-300 font-medium">Al Emadi Business Center, C Ring Road, Doha, Qatar</span>
               </div>
             </div>
           </div>
         </div>
         
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Amna Auditing. All rights reserved.</p>
+        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
+          <p className="mb-2 text-gray-300 font-medium">&copy; {new Date().getFullYear()} Amna Auditing. All rights reserved.</p>
+          <p className="text-sm text-gray-300">
+            Powered by{' '}
+            <a
+              href="https://quadrate.lk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#7c42d9] hover:text-[#9e6ae3] transition-colors duration-300 font-medium"
+            >
+              Quadrate Tech Solutions
+            </a>
+          </p>
         </div>
       </div>
     </footer>

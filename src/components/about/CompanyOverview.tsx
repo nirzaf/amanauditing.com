@@ -1,7 +1,32 @@
 import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Award, Users, Briefcase, TrendingUp, Calendar } from 'lucide-react';
+import React from 'react';
 
 const CompanyOverview = () => {
+  const iconVariants = {
+    hidden: { scale: 0.8, opacity: 0 },
+    visible: { 
+      scale: 1, 
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const floatVariants = {
+    initial: { y: 0 },
+    animate: {
+      y: [-5, 5, -5],
+      transition: {
+        duration: 4,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
+    }
+  };
+
   return (
     <section className="py-24 relative overflow-hidden">
       {/* Background Elements */}
@@ -30,18 +55,44 @@ const CompanyOverview = () => {
               
               {/* Stats */}
               <div className="absolute bottom-0 left-0 right-0 p-8 grid grid-cols-3 gap-4">
-                <div className="text-white">
-                  <div className="text-3xl font-bold">15+</div>
-                  <div className="text-sm text-white/80">Years Experience</div>
-                </div>
-                <div className="text-white">
-                  <div className="text-3xl font-bold">500+</div>
+                <motion.div 
+                  variants={floatVariants}
+                  initial="initial"
+                  animate="animate"
+                  className="text-white"
+                >
+                  <div className="text-3xl font-bold flex items-center gap-2">
+                    <Calendar className="w-6 h-6" />
+                    <span>2021</span>
+                  </div>
+                  <div className="text-sm text-white/80">Established</div>
+                </motion.div>
+                <motion.div 
+                  variants={floatVariants}
+                  initial="initial"
+                  animate="animate"
+                  style={{ animationDelay: '0.2s' }}
+                  className="text-white"
+                >
+                  <div className="text-3xl font-bold flex items-center gap-2">
+                    <Users className="w-6 h-6" />
+                    <span>500+</span>
+                  </div>
                   <div className="text-sm text-white/80">Clients Served</div>
-                </div>
-                <div className="text-white">
-                  <div className="text-3xl font-bold">100%</div>
+                </motion.div>
+                <motion.div 
+                  variants={floatVariants}
+                  initial="initial"
+                  animate="animate"
+                  style={{ animationDelay: '0.4s' }}
+                  className="text-white"
+                >
+                  <div className="text-3xl font-bold flex items-center gap-2">
+                    <Award className="w-6 h-6" />
+                    <span>100%</span>
+                  </div>
                   <div className="text-sm text-white/80">Satisfaction</div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </motion.div>
@@ -72,28 +123,47 @@ const CompanyOverview = () => {
                   Amna Accounting is poised to assist your business with its outsourced accounting, auditing, assurance, taxation and payroll needs. Our team of dedicated professionals provides an integrated service platform and knowledge base that provides the tools and know-how for your continued success.
                 </p>
                 <p className="text-gray-600 leading-relaxed">
-                  Founded by a visionary Qatari woman with over 15 years of experience in auditing and financial work, particularly in oil and gas, we are committed to delivering exceptional service and building lasting relationships with our clients.
+                  Founded by a visionary Qatari woman in 2021, we bring fresh perspectives and innovative solutions to the financial services industry, particularly in oil and gas sector. We are committed to delivering exceptional service and building lasting relationships with our clients.
                 </p>
               </div>
 
               {/* Features */}
               <div className="grid grid-cols-2 gap-6 pt-6">
                 {[
-                  "International Standards Compliance",
-                  "Expert Financial Advisory",
-                  "Comprehensive Tax Services",
-                  "Strategic Business Planning"
+                  { text: "International Standards Compliance", icon: Award },
+                  { text: "Expert Financial Advisory", icon: Briefcase },
+                  { text: "Comprehensive Tax Services", icon: TrendingUp },
+                  { text: "Strategic Business Planning", icon: Users }
                 ].map((feature, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial="hidden"
+                    whileInView="visible"
                     viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="flex items-center space-x-2"
+                    variants={{
+                      hidden: { opacity: 0, y: 20 },
+                      visible: {
+                        opacity: 1,
+                        y: 0,
+                        transition: {
+                          delay: index * 0.1,
+                          duration: 0.5
+                        }
+                      }
+                    }}
+                    className="flex items-center space-x-2 group"
                   >
-                    <ArrowUpRight className="h-5 w-5 text-[#5616b3]" />
-                    <span className="text-sm text-gray-600">{feature}</span>
+                    <motion.div
+                      variants={iconVariants}
+                      className="p-2 rounded-lg bg-purple-50 group-hover:bg-purple-100 transition-colors duration-300"
+                    >
+                      {React.createElement(feature.icon, {
+                        className: "h-5 w-5 text-[#5616b3]"
+                      })}
+                    </motion.div>
+                    <span className="text-sm text-gray-600 group-hover:text-gray-900 transition-colors duration-300">
+                      {feature.text}
+                    </span>
                   </motion.div>
                 ))}
               </div>
