@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -6,11 +5,13 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import UsefulLinks from './pages/UsefulLinks';
+import PopupModal from './components/PopupModal';
 
 function App() {
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
+        <PopupModal />
         <Navbar />
         <main className="flex-grow">
           <Routes>
