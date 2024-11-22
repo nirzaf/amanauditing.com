@@ -25,24 +25,24 @@ const MissionVision = () => {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative"
           >
             <div className="absolute -inset-4 bg-gradient-to-r from-[#5616b3] to-purple-600 rounded-2xl opacity-5 blur"></div>
             <div className="relative bg-white rounded-2xl p-8 shadow-xl">
-              <div className="bg-purple-100 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
-                <Target className="h-8 w-8 text-[#5616b3]" />
-              </div>
+              <motion.div 
+                className="bg-purple-100 w-20 h-20 rounded-xl flex items-center justify-center mb-6"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 300, damping: 10 }}
+              >
+                <Target className="h-10 w-10 text-[#5616b3]" />
+              </motion.div>
               <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
               <p className="text-gray-600 leading-relaxed">
                 To provide exceptional audit and assurance services that empower businesses 
                 to make informed decisions and maintain the highest standards of financial 
                 integrity and compliance.
               </p>
-              {/* Decorative Element */}
-              <div className="absolute top-4 right-4">
-                <div className="text-[#5616b3]/10 text-8xl font-bold">01</div>
-              </div>
             </div>
           </motion.div>
 
@@ -51,23 +51,23 @@ const MissionVision = () => {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative"
           >
             <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 to-[#5616b3] rounded-2xl opacity-5 blur"></div>
             <div className="relative bg-white rounded-2xl p-8 shadow-xl">
-              <div className="bg-purple-100 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
-                <Eye className="h-8 w-8 text-[#5616b3]" />
-              </div>
+              <motion.div 
+                className="bg-purple-100 w-20 h-20 rounded-xl flex items-center justify-center mb-6"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 300, damping: 10 }}
+              >
+                <Eye className="h-10 w-10 text-[#5616b3]" />
+              </motion.div>
               <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
               <p className="text-gray-600 leading-relaxed">
                 To be the most trusted name in audit services, known for our commitment 
                 to excellence, integrity, and innovative solutions that drive business success.
               </p>
-              {/* Decorative Element */}
-              <div className="absolute top-4 right-4">
-                <div className="text-[#5616b3]/10 text-8xl font-bold">02</div>
-              </div>
             </div>
           </motion.div>
         </div>
