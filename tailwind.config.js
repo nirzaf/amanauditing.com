@@ -9,6 +9,7 @@ export default {
       animation: {
         blob: "blob 7s infinite",
         scroll: "scroll 2s infinite",
+        'card-shine': "card-shine 6s infinite linear",
       },
       keyframes: {
         blob: {
@@ -36,6 +37,14 @@ export default {
           "100%": {
             transform: "translateY(0.75rem)",
             opacity: "0",
+          },
+        },
+        'card-shine': {
+          "0%": {
+            transform: "translateX(-100%) rotate(25deg)",
+          },
+          "100%": {
+            transform: "translateX(100%) rotate(25deg)",
           },
         },
       },

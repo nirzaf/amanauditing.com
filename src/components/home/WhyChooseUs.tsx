@@ -30,6 +30,14 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ imageSrc, imageAlt, title, de
       {/* Enhanced metallic shine effect */}
       <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_50%_-20%,rgba(255,255,255,0.8),rgba(255,255,255,0))]"></div>
       <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_80%_50%,rgba(255,255,255,0.8),rgba(255,255,255,0))]"></div>
+
+      {/* Moving shine effect */}
+      <div className="absolute inset-0 overflow-hidden rounded-xl">
+        <div className="absolute inset-0 rounded-xl">
+          <div className="absolute bottom-0 left-[-100%] w-[200%] h-[200%] animate-card-shine bg-[linear-gradient(115deg,transparent_30%,rgba(255,255,255,0.4)_40%,rgba(255,255,255,0.6)_45%,rgba(255,255,255,0.4)_50%,transparent_60%)]">
+          </div>
+        </div>
+      </div>
       
       {/* Card content */}
       <div className="relative flex flex-col h-full">
