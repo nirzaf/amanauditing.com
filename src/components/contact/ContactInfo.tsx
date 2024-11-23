@@ -7,7 +7,7 @@ const ContactInfo = () => {
       <ContactCard
         icon={<Phone className="h-8 w-8 text-[#5616b3]" />}
         title="Phone"
-        info="+974 4012 3456"
+        info="+974 5530 4717"
         delay={0.2}
       />
       <ContactCard
@@ -19,7 +19,7 @@ const ContactInfo = () => {
       <ContactCard
         icon={<MapPin className="h-8 w-8 text-[#5616b3]" />}
         title="Office"
-        info="Al Emadi Business Center, C Ring Road, Doha, Qatar"
+        info="Building No 189, Zone 53, Street 790, Umm Al Dome St, Ar Rayyan, Qatar"
         delay={0.6}
       />
     </div>
