@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { X } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
@@ -7,6 +7,32 @@ const PopupModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const modalRef = useRef<HTMLDivElement>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  // Mouse tracking spring animations
+  const springConfig = { damping: 15, stiffness: 150 };
+  const rotateX = useSpring(0, springConfig);
+  const rotateY = useSpring(0, springConfig);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!modalRef.current) return;
+      
+      const rect = modalRef.current.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      
+      const rotateXValue = ((e.clientY - centerY) / (window.innerHeight / 2)) * 10;
+      const rotateYValue = ((e.clientX - centerX) / (window.innerWidth / 2)) * 10;
+      
+      rotateX.set(-rotateXValue);
+      rotateY.set(rotateYValue);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   useEffect(() => {
     if (location.pathname === '/') {
@@ -36,11 +62,13 @@ const PopupModal = () => {
       opacity: 0,
       scale: 0.5,
       rotateX: -15,
+      z: -100,
     },
     visible: {
       opacity: 1,
       scale: 1,
       rotateX: 0,
+      z: 0,
       transition: {
         type: "spring",
         damping: 20,
@@ -51,6 +79,7 @@ const PopupModal = () => {
       opacity: 0,
       scale: 0.9,
       rotateX: 15,
+      z: -100,
       transition: {
         duration: 0.3
       }
@@ -76,7 +105,7 @@ const PopupModal = () => {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 flex items-center justify-center z-50">
+        <div className="fixed inset-0 flex items-center justify-center z-50 perspective-1000">
           <motion.div
             variants={backdropVariants}
             initial="hidden"
@@ -87,19 +116,45 @@ const PopupModal = () => {
           />
 
           <motion.div
+            ref={modalRef}
             variants={modalVariants}
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="relative w-[95%] md:w-[80%] max-w-4xl bg-white rounded-2xl shadow-[0_0_40px_rgba(0,0,0,0.2)] overflow-hidden z-10"
+            style={{
+              rotateX,
+              rotateY,
+              transformStyle: "preserve-3d",
+            }}
+            className="relative w-[95%] md:w-[80%] max-w-4xl bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-[0_10px_50px_rgba(0,0,0,0.3)] overflow-hidden z-10 [transform-style:preserve-3d]"
           >
+            <div className="absolute inset-0 bg-gradient-to-br from-transparent to-black/5 pointer-events-none" />
+            <div className="absolute inset-0 shadow-inner pointer-events-none" />
+            
             <motion.button
               onClick={closeModal}
-              className="absolute top-4 right-4 text-white bg-black/20 hover:bg-black/40 rounded-full p-2 backdrop-blur-sm z-20 transition-all duration-300"
-              whileHover={{ scale: 1.1 }}
+              className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center z-20"
+              whileHover={{ scale: 1.1, rotate: 90 }}
               whileTap={{ scale: 0.9 }}
             >
-              <X size={20} />
+              <div className="relative w-8 h-8 bg-gradient-to-br from-gray-700 to-gray-900 rounded-full shadow-lg [transform-style:preserve-3d] hover:shadow-xl transition-shadow">
+                <div className="absolute inset-1 bg-gradient-to-br from-gray-600 to-gray-800 rounded-full [transform:translateZ(2px)]">
+                  <div className="absolute inset-1 bg-gradient-to-br from-gray-500 to-gray-700 rounded-full [transform:translateZ(1px)] flex items-center justify-center">
+                    <X className="w-4 h-4 text-white transform rotate-45" />
+                  </div>
+                </div>
+                {[...Array(8)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="absolute w-1 h-1 bg-gray-400"
+                    style={{
+                      left: '50%',
+                      top: '50%',
+                      transform: `rotate(${i * 45}deg) translateX(8px) translateZ(1px)`,
+                    }}
+                  />
+                ))}
+              </div>
             </motion.button>
 
             <div className="flex flex-col">

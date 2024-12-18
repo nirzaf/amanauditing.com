@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-  <path d="M0 0h32v32H0z" fill="none"/>
-  <path d="M0 0h1v32H0zm31 0h1v32h-1zM0 0v1h32V0zm0 31v1h32v-1z" fill="currentColor" fill-opacity="0.1"/>
-</svg>
