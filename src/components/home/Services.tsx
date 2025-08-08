@@ -77,16 +77,20 @@ const Services = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-center mt-16"
         >
-          <motion.button
+          <motion.a
+            href="/#/services"
             whileHover={{ 
               scale: 1.05,
               boxShadow: "0 20px 40px rgba(86, 22, 179, 0.3)"
             }}
             whileTap={{ scale: 0.95 }}
-            className="btn-primary text-lg px-8 py-4"
+            className="btn-primary text-lg px-8 py-4 inline-flex items-center space-x-2"
           >
-            Explore All Services
-          </motion.button>
+            <span>Explore All Services</span>
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </motion.a>
         </motion.div>
       </div>
     </section>
