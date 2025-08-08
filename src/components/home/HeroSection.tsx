@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, CheckCircle, Award, Users } from 'lucide-react';
+import { CheckCircle, Award, Users } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 // Floating Particles Component
@@ -154,8 +154,12 @@ const HeroSection = () => {
               initial={{ opacity: 0, rotateX: 90 }}
               animate={{ opacity: 1, rotateX: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="block text-white drop-shadow-lg"
-              style={{ textShadow: "3px 3px 6px rgba(0,0,0,0.9)" }}
+              className="block font-bold"
+              style={{ 
+                color: "#8B5CF6",
+                textShadow: "3px 3px 6px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.5)",
+                WebkitTextStroke: "1px rgba(255,255,255,0.3)"
+              }}
             >
               Professional
             </motion.span>
@@ -163,29 +167,25 @@ const HeroSection = () => {
               initial={{ opacity: 0, rotateX: 90 }}
               animate={{ opacity: 1, rotateX: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="block relative"
+              className="block font-bold"
+              style={{ 
+                color: "#8B5CF6",
+                textShadow: "4px 4px 8px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.7)",
+                WebkitTextStroke: "1px rgba(255,255,255,0.3)"
+              }}
             >
-              {/* Background text for better visibility */}
-              <span 
-                className="absolute inset-0 text-white font-bold"
-                style={{ 
-                  textShadow: "4px 4px 8px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.7)",
-                  WebkitTextStroke: "1px rgba(255,255,255,0.3)"
-                }}
-              >
-                Audit & Assurance
-              </span>
-              {/* Gradient overlay text */}
-              <span className="relative bg-gradient-to-r from-[#8B5CF6] via-[#A855F7] to-[#C084FC] bg-clip-text text-transparent font-bold">
-                Audit & Assurance
-              </span>
+              Audit & Assurance
             </motion.span>
             <motion.span
               initial={{ opacity: 0, rotateX: 90 }}
               animate={{ opacity: 1, rotateX: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="block text-white drop-shadow-lg"
-              style={{ textShadow: "3px 3px 6px rgba(0,0,0,0.9)" }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="block font-bold"
+              style={{ 
+                color: "#8B5CF6",
+                textShadow: "3px 3px 6px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.5)",
+                WebkitTextStroke: "1px rgba(255,255,255,0.3)"
+              }}
             >
               Services
             </motion.span>
@@ -250,20 +250,7 @@ const HeroSection = () => {
         {/* Statistics */}
         <Statistics />
 
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 2 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="flex flex-col items-center text-white/70"
-          >
-          </motion.div>
-        </motion.div>
+
       </div>
     </section>
   );
