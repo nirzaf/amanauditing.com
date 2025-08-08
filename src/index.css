@@ -4,12 +4,24 @@
 
 @layer base {
   body {
-    @apply text-gray-900 bg-white;
+    @apply bg-gray-50 text-gray-800;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-[#5616b3] text-white px-6 py-2 rounded-full hover:bg-purple-700 transition-colors;
+    @apply bg-[#5616b3] text-white px-6 py-3 rounded-full font-semibold hover:bg-purple-700 transition-all duration-300 shadow-md hover:shadow-lg;
+  }
+
+  .section-padding {
+    @apply py-16 sm:py-20;
+  }
+
+  .section-title {
+    @apply text-3xl sm:text-4xl font-bold text-gray-900 text-center;
+  }
+
+  .section-subtitle {
+    @apply mt-4 text-lg text-gray-600 text-center max-w-3xl mx-auto;
   }
 }
