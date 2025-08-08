@@ -5,8 +5,8 @@ import React from 'react';
 const AboutHero = () => {
   const iconVariants = {
     hidden: { scale: 0, rotate: -180 },
-    visible: { 
-      scale: 1, 
+    visible: {
+      scale: 1,
       rotate: 0,
       transition: {
         type: "spring",
@@ -14,7 +14,7 @@ const AboutHero = () => {
         damping: 20
       }
     },
-    hover: { 
+    hover: {
       scale: 1.1,
       rotate: 5,
       transition: {
@@ -52,7 +52,7 @@ const AboutHero = () => {
 
       {/* Content */}
       <div className="relative w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -94,7 +94,7 @@ const AboutHero = () => {
           </div>
 
           {/* Badge */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
@@ -105,7 +105,7 @@ const AboutHero = () => {
           </motion.div>
 
           {/* Main Title */}
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
@@ -115,7 +115,7 @@ const AboutHero = () => {
           </motion.h1>
 
           {/* Description */}
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
@@ -125,7 +125,7 @@ const AboutHero = () => {
           </motion.p>
 
           {/* Scroll Indicator */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, repeat: Infinity, repeatType: "reverse", duration: 1.5 }}
