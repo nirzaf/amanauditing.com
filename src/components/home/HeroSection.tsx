@@ -84,7 +84,7 @@ const Statistics = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 1.2 }}
-      className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16"
+      className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12"
     >
       {stats.map((stat, index) => (
         <motion.div
@@ -115,7 +115,7 @@ const Statistics = () => {
 const HeroSection = () => {
   return (
     <section 
-      className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat overflow-hidden"
+      className="relative min-h-[80vh] flex items-center justify-center bg-cover bg-center bg-no-repeat overflow-hidden"
       style={{
         backgroundImage: "url('/amnaauditing-hero.png')",
       }}
