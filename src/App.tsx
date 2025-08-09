@@ -9,6 +9,7 @@ import Services from './pages/Services';
 import UsefulLinks from './pages/UsefulLinks';
 import NotFound from './pages/NotFound';
 import PopupModal from './components/PopupModal';
+import FloatingActionButton from './components/common/FloatingActionButton';
 
 function App() {
   useEffect(() => {
@@ -59,6 +60,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <FloatingActionButton />
       </div>
     </Router>
   );

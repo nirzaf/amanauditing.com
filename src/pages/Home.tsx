@@ -2,6 +2,7 @@ import HeroSection from '../components/home/HeroSection';
 import WhyChooseUs from '../components/home/WhyChooseUs';
 import Features from '../components/home/Features';
 import Services from '../components/home/Services';
+import AnimatedStats from '../components/home/AnimatedStats';
 import SectionDivider from '../components/common/SectionDivider';
 import SEOHead from '../components/common/SEOHead';
 
@@ -28,7 +29,7 @@ const Home = () => {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-white overflow-hidden">
       <SEOHead
         title="Amna Auditing - Professional Audit & Assurance Services | Qatar"
         description="Leading audit and financial advisory services in Qatar with 25+ years of excellence. Professional auditing, assurance, payroll, tax services, and business advisory solutions."
@@ -37,11 +38,9 @@ const Home = () => {
         structuredData={structuredData}
       />
       <HeroSection />
-      <SectionDivider />
       <WhyChooseUs />
-      <SectionDivider />
       <Features />
-      <SectionDivider />
+      <AnimatedStats />
       <Services />
     </div>
   );

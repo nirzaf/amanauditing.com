@@ -24,4 +24,91 @@
   .section-subtitle {
     @apply mt-4 text-lg text-gray-600 text-center max-w-3xl mx-auto;
   }
+
+  /* Enhanced Animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float 6s ease-in-out infinite 2s;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-card-shine {
+    animation: card-shine 3s ease-in-out infinite;
+  }
+
+  .animate-gradient-x {
+    animation: gradient-x 15s ease infinite;
+    background-size: 400% 400%;
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 3s ease-in-out infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+
+  .animate-wiggle {
+    animation: wiggle 1s ease-in-out infinite;
+  }
+
+  /* Glass morphism effect */
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, #5616b3, #8b5cf6, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Neon glow effect */
+  .neon-glow {
+    box-shadow: 0 0 20px rgba(86, 22, 179, 0.5), 0 0 40px rgba(86, 22, 179, 0.3), 0 0 60px rgba(86, 22, 179, 0.1);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 20px rgba(86, 22, 179, 0.4); }
+  100% { box-shadow: 0 0 40px rgba(86, 22, 179, 0.8), 0 0 60px rgba(86, 22, 179, 0.4); }
+}
+
+@keyframes card-shine {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(30deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(30deg); }
+}
+
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes wiggle {
+  0%, 7%, 14%, 21%, 28%, 35%, 42%, 49%, 56%, 63%, 70%, 77%, 84%, 91%, 98%, 100% { transform: rotate(0deg); }
+  3.5% { transform: rotate(2deg); }
+  10.5%, 24.5% { transform: rotate(-2deg); }
+  17.5% { transform: rotate(2deg); }
+  31.5% { transform: rotate(-2deg); }
 }
