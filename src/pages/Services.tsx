@@ -1,4 +1,5 @@
 import ServicesHero from '../components/services/ServicesHero';
+import ServicesNavigation from '../components/services/ServicesNavigation';
 import ServiceCategories from '../components/services/ServiceCategories';
 import ServiceDetails from '../components/services/ServiceDetails';
 import ServiceProcess from '../components/services/ServiceProcess';
@@ -37,6 +38,7 @@ const Services = () => {
         structuredData={structuredData}
       />
       <ServicesHero />
+      <ServicesNavigation />
       <ServiceCategories />
       <ServiceDetails />
       <ServiceProcess />
